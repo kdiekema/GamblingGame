@@ -1,0 +1,25 @@
+import random
+def gambling_game(count):
+  winnings = 0 
+  total_winnings = []
+  num_games = 0
+  roll = random.randint(1,6)
+  while count >= num_games:
+      roll = random.randint(1,6)
+      while roll in [4,5,6]:
+          winnings += roll
+          num_games += 1
+          total_winnings.append(roll)
+          roll = random.randint(1,6)
+      if roll in [1,2,3]:
+        num_games += 1
+        total_winnings.append(winnings)
+        winnings = 0 
+  maximum = max(total_winnings)
+  average = round(sum(total_winnings)/num_games,2)
+  print("The maximum winnings are:", maximum)
+  print("The average winnings are:", average)
+  
+
+  
+gambling_game(10000)
